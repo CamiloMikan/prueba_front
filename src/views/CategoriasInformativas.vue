@@ -1,5 +1,10 @@
 <template>
+
+  <div>
+    <Navbar :usuario="usuarioActual" />
+
     <div class="categorias-informativas">
+      
       <h2>Categorias Informativas</h2>
       <div @click="mostrarVentanaEmergente('Oro')" class="categoria">
         <img src="../assets/medalla_oro.png" alt="Icono de Oro" />
@@ -17,17 +22,23 @@
         <p>Total: {{ obtenerTotal('bronze') }}</p>
       </div>
     </div>
+
+  </div>
+    
 </template>
   
   <script>
   import axios from 'axios';
-  
+  import Navbar from "@/views/Navbar";
+
   export default {
     data() {
       return {
         ganadores: [],
       };
-    },
+    },components: {
+    Navbar,
+  },
     mounted() {
       axios.get('https://raw.githubusercontent.com/ag-grid/ag-grid/master/grid-packages/ag-grid-docs/src/olympicWinners.json')
         .then(response => {

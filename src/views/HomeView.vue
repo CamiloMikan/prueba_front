@@ -62,24 +62,19 @@
 <script>
 export default {
   name: "HomeView",
-  components: {
-
-  },
-
-  data(){
-    return{
+  components: {},
+  data() {
+    return {
       usuario: "",
       password: "",
-      
-    }
+      usuarioActual: null,
+    };
   },
-
-  methods:{
+  methods: {
     login() {
-
       const users = [
-        { usuario: 'coordinador@gmail.com', password: '1234', role: 'coordinador' },
-        { usuario: 'administrador@gmail.com', password: '12345', role: 'admin' }
+        { usuario: 'coordinador@gmail.com', password: '1234', role: 'COORDINADOR', nombre: 'Camilo Mikan' },
+        { usuario: 'administrador@gmail.com', password: '12345', role: 'ADMINISTRADOR', nombre: 'Oscar Aguilar' }
       ];
 
       // Buscar usuario por credenciales
@@ -89,11 +84,14 @@ export default {
 
       if (foundUser) {
         console.log('Inicio de sesión exitoso');
-        console.log('Usuario:', foundUser.usuario);
-        console.log('Rol:', foundUser.role);
+        
+        // Guardar la información del usuario en el localStorage
+        localStorage.setItem('usuarioActual', JSON.stringify(foundUser));
+        
+        this.usuarioActual = foundUser;
 
-        if (foundUser.role === 'admin') {
-          this.$router.push('/dashborad');
+        if (foundUser.role === 'ADMINISTRADOR') {
+          this.$router.push('/dashboard');
         } else {
           this.$router.push('/Coordinador');
         }

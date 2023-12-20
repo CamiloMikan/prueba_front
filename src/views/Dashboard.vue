@@ -1,6 +1,6 @@
 <template>
   <div>
-    <Navbar />
+    <Navbar  />
 
     <div class="contenedor-central">
     <div class="contenedor-botones">
@@ -27,6 +27,14 @@ export default {
   },
   components: {
     Navbar,
+  },
+  data() {
+    return {
+      usuarioActual: {
+        nombre: 'Nombre del Usuario',
+        tipoUsuario: 'Tipo de Usuario',
+      },
+    };
   },
 };
 </script>

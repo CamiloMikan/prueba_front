@@ -1,7 +1,7 @@
 import Vue from 'vue';
 import VueRouter from 'vue-router';
 import HomeView from '../views/HomeView.vue';
-import dashborad from '../views/Dashboard.vue';
+import dashboard from '../views/Dashboard.vue';
 import coordinador from '../views/Coordinador.vue';
 import TablaGanadores from '../views/tabla_ganadores.vue';
 import CategoriasInformativas from '../views/CategoriasInformativas.vue';
@@ -18,9 +18,9 @@ const routes = [
     component: HomeView
   },
   {
-    path: '/dashborad',
-    name: 'dashborad',
-    component: dashborad
+    path: '/dashboard',
+    name: 'dashboard',
+    component: dashboard
   },
   {
     path: '/coordinador',

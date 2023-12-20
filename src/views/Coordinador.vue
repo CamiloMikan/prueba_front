@@ -1,6 +1,6 @@
 <template>
   <div>
-    <Navbar />
+    <Navbar :usuario="usuarioActual" />
 
     <div class="container">
     
@@ -21,6 +21,14 @@ export default {
   name: 'CoordinadorView',
   components: {
     Navbar,
+  },
+  data() {
+    return {
+      usuarioActual: {
+        nombre: 'Nombre del Usuario',
+        tipoUsuario: 'Tipo de Usuario',
+      },
+    };
   },
 };
 </script>
