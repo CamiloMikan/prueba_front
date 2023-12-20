@@ -1,6 +1,13 @@
-import Vue from 'vue'
-import VueRouter from 'vue-router'
-import HomeView from '../views/HomeView.vue'
+import Vue from 'vue';
+import VueRouter from 'vue-router';
+import HomeView from '../views/HomeView.vue';
+import dashborad from '../views/Dashboard.vue';
+import coordinador from '../views/Coordinador.vue';
+import TablaGanadores from '../views/tabla_ganadores.vue';
+import CategoriasInformativas from '../views/CategoriasInformativas.vue';
+import Navbar from '../views/Navbar.vue';
+
+
 
 Vue.use(VueRouter)
 
@@ -11,13 +18,30 @@ const routes = [
     component: HomeView
   },
   {
-    path: '/about',
-    name: 'about',
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
-    component: () => import(/* webpackChunkName: "about" */ '../views/AboutView.vue')
-  }
+    path: '/dashborad',
+    name: 'dashborad',
+    component: dashborad
+  },
+  {
+    path: '/coordinador',
+    name: 'coordinador',
+    component: coordinador
+  },
+  { path: '/tabla',
+    name: 'tabla',
+    component: TablaGanadores 
+  },
+  { 
+    path: '/categorias',
+    name: 'categorias',   
+    component: CategoriasInformativas 
+  },
+  { 
+    path: '/Navbar',
+    name: 'Navbar',   
+    component: Navbar 
+  },
+
 ]
 
 const router = new VueRouter({
